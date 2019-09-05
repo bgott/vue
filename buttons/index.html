@@ -8,23 +8,19 @@
 </head>
 <body>
 	<div id="app">
-		{{text_title}}
-		<br>
-		<div
-      v-bind:title="randNum"
-      v-if="shown"
-    >
-    Hover over me for a random number!
+    <button class='vue-btn' v-on:click="reveal">Reveal the secret number!</button>
   </div>
-	</div>
 	<script>
 		var app = new Vue({
 			el: '#app',
 			data: {
-				text_title: 'Here are some directives',
-        randNum: Math.floor(Math.random() * 50) + 1,
-        shown:false
-			}
+        secretNumber: Math.floor(Math.random() * 100) + 1
+			},
+      methods: {
+        reveal() {
+          alert(`The secret number is: ${this.secretNumber}`)
+        }
+      }
 		})
 	</script>
 </body>
